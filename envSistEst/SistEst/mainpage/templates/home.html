@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sistema Estacionamento</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css'>
+    <script src='main.js'></script>
+    <style>
+        .header{
+            z-index: 0;
+            top: 0; /* Stay at the top */
+            left: 0;
+            width: 100%;
+            height: 85px;
+            background-color: #0f4f0f;
+            position: fixed;
+            display: grid;
+            grid-template-columns: 10% auto auto auto auto;
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 1);
+        }
+        /* Style the links inside the navigation bar */
+        .item-header{
+            font-size: 25px;
+            font-weight: bold;
+            padding-top: 0;
+            position: relative;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            line-height: 85px;
+        }
+
+        .item-header a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+  
+        /* Change the color of links on hover */
+        .item-header a:hover {
+            background-color: #11781f;
+            color: black;
+        }
+
+        .introducao{
+            padding-top: 90px;
+            width: 100%;
+            height: 550px;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            background-color: #d9e7fa;
+         }
+        .titulo1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            color: #205294;
+            width: 100%;
+            text-align: center;
+        }
+        .titulo2{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            color: #185eb4;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .texto1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #000000;
+            width: 80%;
+            text-align: center;
+            margin: 10%;
+            line-height: 2.0;
+        }
+        .resumo{
+            font-family: Arial, Helvetica, sans-serif;
+            width: 80%;
+            font-size: 20px;
+            text-align: center;
+            padding: 10%;
+            line-height: 2.0;
+        }
+        .imagens{
+            text-align: center;
+            padding-top: 20%;
+        }
+        .card1{
+            width: 93%;
+            height: 300px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 40px;
+        }
+        .card2{
+            margin: 30px;
+            background-color: #d9e7fa;
+            border-radius: 10px;
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 1);
+         }
+        .card3{
+            margin: 50px;
+            background-color: #cccccc;
+            border: 1px solid black;
+        }
+
+        .main-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1e2023;
+            color: white;
+            padding: 30px;
+          }
+
+        .main-footer a{
+            color: gray;
+        }
+
+        .main-footer a:hover{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="item-header" style="text-align: right;">
+        <img src="{% static 'media/logo_SistEst.png' %}" style="width: 70px;">
+    </div>
+    <div class="item-header" style="text-align: left;">
+         SistEst 
+    </div>
+    <div class="item-header"><a href="#funcionalidades">Funcionalidades</a> </div>
+    <div class="item-header"><a href="#planoseprecos">Planos e Preços</a> </div>
+    <div class="item-header"><a href="#contatos">Contatos</a> </div>
+</div>
+<div class="introducao">
+    <div>
+        <h1 class="titulo1" style="vertical-align: bottom;">Sistema de Estacionamento <br>(SistEst)</h1>
+        <div class="resumo">
+            <p>Controlar o seu estacionamento nunca foi tão 
+                fácil como agora! A ESTACIONE NET é o app para 
+                gerenciamento de estacionamento de pequeno e 
+                médio porte mais barato do Brasil. É o que o 
+                seu negócio precisa!</p>
+        </div>
+    </div>
+    <div  class="imagens">
+        <img src="{% static 'media/princ_SistEst.png' %}" style="width: 400px;">
+    </div>
+</div>
+<div>
+    <h1 class="titulo1">A gestão do seu estacionamento facilitado é <br>
+        com o <b>SistEst</b></h1>
+</div>
+<div class="card1">
+    <div class="card2">
+        <p class="titulo2">Controle de caixa</p>
+        <p class="texto1">Abertura e fechamento de caixa com relatórios. 
+            Sistema simples integrado com seu aplicativo Android. 
+            Com as opções de cobrança do estacionamento por preço ou por tempo.</p>
+    </div>
+    <div class="card2">
+        <p class="titulo2">Captura da placa com a câmera</p>
+        <p class="texto1">Utilize a câmera do seu smartfone 
+            para capturar a placa do carro. Com isso você deixa 
+            seu negócio mais ágil e evitar erros de digitação.</p>
+    </div>
+</div>
+<div class="card1">
+    <div class="card2">
+        <p class="titulo2">Aplicativo Off-line</p>
+        <p class="texto1">O aplicativo não necessita de internet 
+            para funcionar. Melhorando o custo e eficiência 
+            no estacionamento.</p>
+    </div>
+    <div class="card2">
+        <p class="titulo2">Tipos de Estacionamentos</p>
+        <p class="texto1">Rotativo, Cobrança por tempo e Mensalistas.</p>
+    </div>
+</div>
+
+<footer class="main-footer">
+    <div class="developer">
+      <a href="https://www.site.com.br/" target="_blank" 
+          rel="noreferrer noopener">By Éberton Marinho</a>
+    </div>
+  
+    <div class="powered">
+      <a href="https://www.djangoproject.com/" target="_blank" 
+          rel="noreferrer noopener">Powered by Django</a>
+    </div>
+  </footer>
+
+</body>
+</html>
