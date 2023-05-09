@@ -10,3 +10,7 @@ class Usuarios(models.Model):
     validade_CNH = models.DateField(null=True, help_text="Formato <em>YYYT-MM-DD </em>")
     telefone = models.CharField(max_length=15, null=False)
     email = models.CharField(max_length=300,null=True)
+
+
+    def __str__(self):
+        return self.cpf + " - " + self.nome
