@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sistema Estacionamento</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css'>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <script src='main.js'></script>
+
+</head>
+<body>
+<div class="header">
+    <div class="item-header" style="text-align: right;">
+        <img src="{% static 'media/logo_SistEst.png' %}" style="width: 70px;">
+    </div>
+    <div class="item-header" style="text-align: left;">
+         SistEst 
+    </div>
+    <div class="item-header"><a href="#funcionalidades">Funcionalidades</a> </div>
+    <div class="item-header"><a href="#planoseprecos">Planos e Preços</a> </div>
+    <div class="item-header"><a href="#contatos">Contatos</a> </div>
+    <div class="item-header"><a href='/usuarios/register'> Usuarios </a> </div>
+</div>
+<div class="espacoheader">
+
+</div>
+
+{% block content %}
+{% endblock %}
+
+<footer class="main-footer">
+    <div class="developer">
+      <a href="https://www.site.com.br/" target="_blank" 
+          rel="noreferrer noopener">By Éberton Marinho</a>
+    </div>
+  
+    <div class="powered">
+      <a href="https://www.djangoproject.com/" target="_blank" 
+          rel="noreferrer noopener">Powered by Django</a>
+    </div>
+  </footer>
+
+</body>
+</html>
