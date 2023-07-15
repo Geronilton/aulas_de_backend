@@ -5,17 +5,28 @@
 {% block content %}
 
 <div class="css forms">
-    <div>
+    <div class="div_titulo-form">
         <h1> Registro de Usuario </h1>
         <!-- <h2>{{num_visitas}} - {{request.session.num_visitas}} </h2> -->
     </div>
 
-    <div>  
+    <div class = "div_forms">  
         <form action="{% url 'usuarios:create' %}" method="post"> 
             {% csrf_token %}
+
             {% for field in form %}
             <label for="{{ field.id_for_label}}"> {{ field.label}}:</label>
             {{field}} <br>
+
+            {% if field.help_text %}
+            <div class= "div_helptext">
+                {{ field.help_text }}
+            </div>
+            {% endif %}
+            
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
             {% endfor %}
 
             <p><button type ="submit"> Salvar </button></p>

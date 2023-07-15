@@ -5,10 +5,15 @@ from django.http import HttpRequest
 
 
 # Create your views here.
-def register_view(request):
+def register_view(request, firstacess=0):
 
-    # num_visitas = request.session.get("num_visitas", 0)
-    # request.session["num_visitas"] = num_visitas + 1
+    if firstacess == 1:
+        register_form = request.session.get("register_form", None)
+        form = RegisterForms(register_form)
+    else:
+        if request.session.get("register_form"):
+            del(request.session["register_form"])
+        form = RegisterForms()
 
     register_form = request.session.get("register_form",None )
 
@@ -24,7 +29,4 @@ def register_create(request):
     post = request.POST
     request.session["register_form"] = post
 
-    return redirect('usuarios:register')
-
-    form = RegisterForms()
-    return render(request, 'pages/register_view.html', {'form': form})
+    return redirect('usuarios:register', firstacess=1)

@@ -5,5 +5,6 @@ app_name = 'usuarios'
 
 urlpatterns = [
     path("register/", register_view, name = 'register'),
-     path("register/create", register_create, name = 'create'),
+    path("register/<int:firstacess>", register_view, name = 'register'),
+    path("register/create", register_create, name = 'create'),
 ]

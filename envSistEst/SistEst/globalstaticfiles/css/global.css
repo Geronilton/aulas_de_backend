@@ -131,3 +131,24 @@
 .main-footer a:hover{
     color: white;
 }
+
+.div_titulo-form
+{
+    text-align: center;
+    width:100% ;
+}
+
+.div_forms {
+    padding-left: 20px;
+    text-align: center;
+    width:50% ;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #747474;
+}
+
+.div_helptext
+{
+    color: #747474;
+    font-weight: bold;
+}
