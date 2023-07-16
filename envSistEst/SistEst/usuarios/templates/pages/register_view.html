@@ -4,10 +4,26 @@
 
 {% block content %}
 
-<div class="css forms">
+<div class="css-forms">
     <div class="div_titulo-form">
         <h1> Registro de Usuario </h1>
-        <!-- <h2>{{num_visitas}} - {{request.session.num_visitas}} </h2> -->
+      
+            <p>
+            {% if form.error %}
+                <div class= "div_error">
+                     o formulario apresenta erros. corrija-los
+                </div>  
+            {% endif %}
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class= "div_sucess">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            </p>
+        
     </div>
 
     <div class = "div_forms">  
@@ -15,17 +31,19 @@
             {% csrf_token %}
 
             {% for field in form %}
-            <label for="{{ field.id_for_label}}"> {{ field.label}}:</label>
+            <label for="{{ field.id_for_label}}"> {{ field.label }}:</label>
             {{field}} <br>
 
             {% if field.help_text %}
             <div class= "div_helptext">
                 {{ field.help_text }}
             </div>
-            {% endif %}
+            {% endif %} <br>
             
             {% if field.errors %}
+            <div class= "div_error">
                 {{ field.errors }}
+            </div>
             {% endif %}
             {% endfor %}
 
