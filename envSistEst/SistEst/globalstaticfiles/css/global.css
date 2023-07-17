@@ -169,6 +169,11 @@
 .div_sucess
 {
     color:green;
-    background-color: #747474;
+    background-color: #CCCCCC;
     font-weight: bold;
+    padding: 10px;
+    width: 50%;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
 }

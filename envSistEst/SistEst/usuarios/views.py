@@ -77,7 +77,7 @@ def login_acess(request):
             if check_p:
                 messages.success(request, 'Usuario Logado com Sucesso.')
                 login(request, authenticad_user)
-                return redirect('usuario:area_usuario')
+                return redirect('usuarios:area_usuario')
             else:
                 messages.error(request, 'Login e senha não conferem.')
         else:
