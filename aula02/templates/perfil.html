@@ -10,5 +10,15 @@
     <h1>Perfil</h1>
     <p> Olá {{ user.nome_completo }},Seja bem-vindo! </p>
     <p><a href="{% url 'logout' %}">Sair</a></p>
+
+    {% if perms.core.bibliotecario %}
+    <p>Esse texto aparece para Bibliotecario</p>
+    {% endif %}
+
+    {% if perms.core.coordenador %}
+    <p>Esse texto aparece para Coordenadores</p>
+    {% endif %}
+
+    <p><a href="{% url 'contato' %}">Pagina de contato</a></p>
 </body>
 </html>

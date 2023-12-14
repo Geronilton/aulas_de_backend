@@ -12,6 +12,14 @@
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
+        <p>
+            Selecione o seu perfil:
+            <input type="radio" name="Permissao" value="bibliotecario" />
+            bibliotecario <br>
+            
+            <input type="radio" name="Permissao" value="coordenador" />
+            Coordenador <br>
+        </p>
         <p><input type="submit" value="cadastrar"> </p>
     </form>
 </body>

@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import curso, Area
 from .forms import CursosForm, AreasForm, UsuarioForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth.models import Permission
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 
+@login_required
+@permission_required('core.coordenador')
 def contato(request):
     return render(request, 'contato.html')
 
@@ -134,7 +137,17 @@ def desconectar(request):
 def cadastrar(request):
     form = UsuarioForm(request.POST or None )
     if form.is_valid():
-        form.save()
+        usuario = form.save(commit=False)
+        usuario.save()
+
+        #Recupera a opção marcada no formulario perfil
+        Permissao_selecionada = request.POST['Permissao']
+        #Recupera a permissão Selecionada do BD
+        permissao = Permission.objects.get(codename = Permissao_selecionada)
+        #Adcionar a permissão ao usuario que esta sendo cadastrado
+        usuario.user_permissions.add(permissao)
+
+        usuario.save()
         return redirect('login')
     
     contexto ={

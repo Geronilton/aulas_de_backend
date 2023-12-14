@@ -11,6 +11,12 @@ class Usuario(AbstractUser):
     USERNAME_FIELD = 'cpf'
     REQUIRED_FIELDS = ['username']
 
+    class Meta:
+        permissions = [
+            ('bibliotecario','Permissão do Usuario Bibliotecario'),
+            ('coordenador','Permissão do Usuario Coordenador')
+        ]
+
 class Area(models.Model):
     nome = models.CharField('Nome', max_length=20)
     def __str__(self):
