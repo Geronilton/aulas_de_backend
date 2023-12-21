@@ -9,6 +9,9 @@
 <body>
     <form method="post">
         {% csrf_token %}
+        {% if erro %}
+        <h5>{{erro}}</h5>
+        {% endif %}
        <p>CPF: <input type="text" name="usuario"></p>
        <p>Senha: <input type="password" name="senha"></p>
 

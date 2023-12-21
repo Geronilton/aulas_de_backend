@@ -9,10 +9,21 @@ from django.contrib.auth.models import Permission
 def index(request):
     return render(request, 'index.html')
 
-@login_required
-@permission_required('core.coordenador')
+# @login_required
+# @permission_required('core.coordenador')
 def contato(request):
-    return render(request, 'contato.html')
+    if request.user.is_active:
+        if request.user.has_perm('core.coordenador'):
+            return render (request, 'contato.html')
+        else:
+            erro='não tem permissão de coordenador'
+    else:
+        erro='Usuario não autenticado'
+        contexto = {
+            'error':erro
+        }
+
+    return render(request, 'contato.html',contexto)
 
 def dados_url(request, sobrenome, idade,nota):
 
@@ -124,7 +135,11 @@ def autenticar(request):
             login(request, user)
             return redirect('perfil')
         else:
-            return render(request, 'registration\login.html')
+            # contexto usado para mensagens de error.
+            contexto = {
+                'erro':'verifique usuario e senha'
+            }
+            return render(request, 'registration\login.html',contexto)
     else:
         return render(request, 'registration\login.html')
 
