@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block estilo %}
+<style type="text/css">
+    body
+    {
+        background-color: darkcyan;
+    }
+</style>
+{% endblock %}
+
+
+{% block conteudo %}
+    <p>Bom dia</p>
+    <p><a href="{% url 'contato' %}">Acessar Contato</a></p>
+
+    {% if not user.is_authenticated %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+    <p><a href="{% url 'cadastrar' %}">Cadastro</a></p>
+    {% else %}
+    <p><a href="{% url 'perfil' %}">Perfil</a></p>
+    <p><a href="{% url 'logout' %}">Sair</a></p>
+    {% endif %}
+
+    <br /><br />
+    
+    <p>CRUDS:</p>
+    <p><a href="{% url 'areas' %}">Área</a></p>
+    <p><a href="{% url 'publicos' %}">Público</a></p>
+    <p><a href="{% url 'cursos' %}">Curso</a></p>
+
+
+   
+
+{% endblock %}

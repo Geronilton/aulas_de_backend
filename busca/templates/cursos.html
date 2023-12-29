@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cursos</h1>
+    
+    <p><a href="{% url 'curso_cadastro' %}">CADASTRAR</a></p>
+
+    <form action="{% url 'cursos'%}" method="post">
+        {% csrf_token %}
+        <p>
+            Titulo: <input type="text" name="titulo" value="{{titulo}}"/>
+            <br>
+            Vagas: <input type="text" name="vagas" value="{{vagas}}"/>
+          <br>
+            selecione uma area: 
+            <select name="area">
+            {% for area in areas %}
+                <option value="{{area.id}}">{{area.nome}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Buscar"> 
+    </p> 
+    </form>
+
+    {% for curso in lista_cursos %}
+    <p>
+        Título: {{ curso.titulo }} 
+        - Vagas: {{ curso.vagas }}
+        - Data de Início: {{ curso.data_inicio }}
+        <a href="{% url 'curso_editar' curso.id %}">EDITAR</a>
+        <a href="{% url 'curso_remover' curso.id %}">REMOVER</a>
+    </p>
+    {% empty %}
+    <p>Nenhum curso cadastrado!</p>
+    {% endfor %}
+
+    <p><a href="{% url 'home' %}">Voltar</a></p>
+</body>
+</html>

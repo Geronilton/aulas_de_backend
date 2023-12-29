@@ -1,0 +1,48 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .formatacao
+        {
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Curso</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            {{form.titulo.label}}:
+            {% render_field form.titulo class="formatacao" %}
+        </p>
+        
+        <p>
+            {{form.vagas.label}}:
+            {% render_field form.vagas class="formatacao" %}
+        </p>
+
+        <p>
+            {{form.data_inicio.label}}:
+            {% render_field form.data_inicio class="formatacao" %}
+        </p>
+
+        <p>
+            {{form.area.label}}
+            {% render_field form.area %}
+        </p>
+
+        <p>
+            {{form.publico.label}}
+            {% render_field form.publico %}
+        </p>
+        <input type="submit" value="Cadastrar" />
+    </form>
+</body>
+</html>
